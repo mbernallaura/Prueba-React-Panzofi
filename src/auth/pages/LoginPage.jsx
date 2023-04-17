@@ -9,7 +9,6 @@ export const LoginPage = () => {
                     <div className="text-center">
                         <img src="../src/assets/logoPanzofi.png" alt="" className="logo"/>
                         <h2 className="card-title">Panzofi</h2>
-                        <h6>Usuario</h6>
                     </div>
                     <FormLogin/>
                 </div>
