@@ -13,12 +13,13 @@ export const FormLogin = () => {
     const onLogin = (event) =>{
         event.preventDefault();
         const usuario = getUser(user, password);
+        localStorage.setItem('user',JSON.stringify(usuario));
         if(usuario.rol=== 'admin'){
-            return navigate(`/admin/${ usuario.id }`,{
+            return navigate(`/admin`,{
                 replace: true
             });
         }else{
-            return navigate(`/normal/${ usuario.id }`,{
+            return navigate(`/normal`,{
                 replace: false
             });
         }
