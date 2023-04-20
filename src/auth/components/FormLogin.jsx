@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { useForm } from "../hooks/useForm"
-import { getUser } from "../helpers";
+import { useForm } from "../hooks"
+import { obtenerUsuario } from "../service/obtenerUsuario"
 
 
 export const FormLogin = () => {
@@ -10,11 +10,11 @@ export const FormLogin = () => {
         password:''
     });
 
-    const onLogin = (event) =>{
+    const onLogin = async (event) =>{
         event.preventDefault();
-        const usuario = getUser(user, password);
-        localStorage.setItem('user',JSON.stringify(usuario));
-        if(usuario.rol=== 'admin'){
+        const persona = await obtenerUsuario(user, password);
+        localStorage.setItem('user',JSON.stringify(persona));
+        if(persona.cod_rol_id === 1){
             return navigate(`/admin`,{
                 replace: true
             });
