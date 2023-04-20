@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router-dom";
+import { actualizarUsuario } from "../../appPrincipal/services/actualizarUsuario";
 
 
-export const Navbar = ({user}) => {
+export const Navbar = ({user, boton1, boton2, fecha}) => {
     const navigate = useNavigate();
 
-    const onLogout = () =>{
+    const onLogout = async (event) =>{
+        event.preventDefault();
+        await actualizarUsuario(user.cod_id, fecha, boton1, boton2);
         localStorage.removeItem('user');
         navigate('/login',{
             replace: true,
