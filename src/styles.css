@@ -1,6 +1,5 @@
-body{
+body, #root{
     margin: 0;
-    display: flex;
     min-height: 100vh;
     min-width: 100vh;
 }
@@ -45,13 +44,13 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;
+    flex-direction: column;
+    margin-top: 1rem;
+    width: 50rem;
+    margin-left: 15rem;
 }
 
-table{
-    table-layout: fixed;
-    width: 180px;
-  }
+
 
 /* .pages2{
     display: flex;
