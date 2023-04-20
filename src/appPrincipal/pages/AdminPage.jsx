@@ -1,45 +1,15 @@
 import { Navbar } from "../../ui/components/Navbar";
+import { PersonsList } from "../components";
+import { fechaHoy } from "../helpers/fechaHoy";
 
 
 export const AdminPage = () => {
   const usuario = JSON.parse(localStorage.getItem('user'));
-
+  const fecha = fechaHoy();
   return (
-    
     <div className="pages2">
-      <Navbar user={ usuario }/>
-      <div className="adminPage">
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td >Larry the Bird</td>
-              <td></td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <Navbar user={ usuario } boton1={ null } boton2={ null } fecha={ fecha }/>
+      <PersonsList/>
     </div>
   )
 }
